@@ -2,4 +2,4 @@
 	path = GameAPI
 	url = https://github.com/Rubberduckycooly/GameAPI
 [GameAPI "https://github.com/Rubberduckycooly/GameAPI.git"]
-	master = master
+	master = HEAD
