@@ -3,7 +3,6 @@
 
 #include <GameAPI/Game.h>
 #include "UIPicture.h"
-#include "UIText.h"
 
 typedef enum {
     LSELECT_PLAYER_NONE,
@@ -61,14 +60,14 @@ typedef struct {
     int32 soundTestID;
     int32 leaderCharacterID;
     int32 sidekickCharacterID;
-    EntityUIText *zoneNameLabels[32];
-    EntityUIText *stageIDLabels[32];
-    EntityUIText *soundTestLabel;
+    Entity *zoneNameLabels[32];
+    Entity *stageIDLabels[32];
+    Entity *soundTestLabel;
     EntityUIPicture *zoneIcon;
     EntityUIPicture *player1Icon;
     EntityUIPicture *player2Icon;
 #if MANIA_USE_PLUS
-    EntityUIText *pinballLabel;
+    Entity *pinballLabel;
 #endif
     int32 labelCount;
 #if MANIA_USE_PLUS
@@ -83,27 +82,5 @@ typedef struct {
 
 // Object Struct
 extern ObjectLevelSelect *LevelSelect;
-
-// Standard Entity Events
-void LevelSelect_Update(void);
-void LevelSelect_LateUpdate(void);
-void LevelSelect_StaticUpdate(void);
-void LevelSelect_Draw(void);
-void LevelSelect_Create(void *data);
-void LevelSelect_StageLoad(void);
-#if GAME_INCLUDE_EDITOR
-void LevelSelect_EditorDraw(void);
-void LevelSelect_EditorLoad(void);
-#endif
-void LevelSelect_Serialize(void);
-
-// Extra Entity Functions
-bool32 LevelSelect_State_Init_RP(bool32 skippedState);
-extern void (*LevelSelect_State_FadeIn)(void);
-extern void (*LevelSelect_SetLabelHighlighted)(bool32 highlight);
-
-extern int32 (*HUD_CharacterIndexFromID)(int32 characterID);
-
-void LevelSelect_ManagePlayerIcon_RP(void);
 
 #endif //! OBJ_LEVELSELECT_H
