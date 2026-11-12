@@ -1,7 +1,7 @@
 #ifndef OBJ_UIPICTURE_H
 #define OBJ_UIPICTURE_H
 
-#include <GameAPI/Game.h>
+#include "Game.h"
 
 // Object Class
 typedef struct {

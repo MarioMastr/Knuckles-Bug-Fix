@@ -1,7 +1,8 @@
 #ifndef OBJ_LEVELSELECT_H
 #define OBJ_LEVELSELECT_H
 
-#include <GameAPI/Game.h>
+#include "Game.h"
+
 #include "UIPicture.h"
 #include "UIText.h"
 
@@ -84,26 +85,7 @@ typedef struct {
 // Object Struct
 extern ObjectLevelSelect *LevelSelect;
 
-// Standard Entity Events
-void LevelSelect_Update(void);
-void LevelSelect_LateUpdate(void);
-void LevelSelect_StaticUpdate(void);
-void LevelSelect_Draw(void);
-void LevelSelect_Create(void *data);
-void LevelSelect_StageLoad(void);
-#if GAME_INCLUDE_EDITOR
-void LevelSelect_EditorDraw(void);
-void LevelSelect_EditorLoad(void);
-#endif
-void LevelSelect_Serialize(void);
-
-// Extra Entity Functions
-bool32 LevelSelect_State_Init_RP(bool32 skippedState);
-extern void (*LevelSelect_State_FadeIn)(void);
-extern void (*LevelSelect_SetLabelHighlighted)(bool32 highlight);
-
-extern int32 (*HUD_CharacterIndexFromID)(int32 characterID);
-
-void LevelSelect_ManagePlayerIcon_RP(void);
+// Function Hooks
+DECLARE_PUBLIC_FUNC_HOOK(LevelSelect_ManagePlayerIcon, void);
 
 #endif //! OBJ_LEVELSELECT_H

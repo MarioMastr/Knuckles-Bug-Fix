@@ -1,5 +1,5 @@
-#include <GameAPI/Game.h>
-#include "Objects/Menu/LevelSelect.h"
+#include "Game.h"
+#include "All.h"
 
 #if RETRO_USE_MOD_LOADER
 DLLExport bool32 LinkModLogic(EngineInfo *info, const char *id);
@@ -12,11 +12,7 @@ void InitModAPI(void) {
     MOD_REGISTER_OBJECT_HOOK(UIText);
     MOD_REGISTER_OBJECT_HOOK(UIPicture);
 
-    LevelSelect_State_FadeIn        = Mod.GetPublicFunction(NULL, "LevelSelect_State_FadeIn");
-    LevelSelect_SetLabelHighlighted = Mod.GetPublicFunction(NULL, "LevelSelect_SetLabelHighlighted");
-    HUD_CharacterIndexFromID        = Mod.GetPublicFunction(NULL, "HUD_CharacterIndexFromID");
-
-    Mod.RegisterStateHook(Mod.GetPublicFunction(NULL, "LevelSelect_State_Init"), LevelSelect_State_Init_RP, true);
+    REGISTER_FUNC_HOOK(LevelSelect_ManagePlayerIcon);
 }
 
 #if RETRO_USE_MOD_LOADER

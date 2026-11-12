@@ -1,7 +1,7 @@
 #ifndef OBJ_UITEXT_H
 #define OBJ_UITEXT_H
 
-#include <GameAPI/Game.h>
+#include "Game.h"
 
 typedef enum {
     UITEXT_ALIGN_LEFT,
